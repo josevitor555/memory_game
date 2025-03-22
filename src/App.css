@@ -15,6 +15,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #1d1d1d;
+
 }
 
 .game {
@@ -25,6 +29,23 @@
   border: 2px solid #1d1d1d;
 }
 
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+    row-gap: 10px;
+  }
+
+  .start-screen {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .game {
+    width: 100%;
+    max-width: 400px;
+  }
+}
 
 body {
   position: relative;
