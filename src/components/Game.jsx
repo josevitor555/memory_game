@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Trophy, RotateCw, Timer } from "lucide-react";
 
-const FoodMemoryGame = ({ difficulty, backToMenu }) => {
+const FoodMemoryGame = ({ difficulty, resetGame }) => {
   // All possible food emojis
   const ALL_FOOD_EMOJIS = React.useMemo(() => ['🍕', '🍔', '🌮', '🍜', '🍣', '🥗', '🍎', '🍦', '🍩', '🍇', '🥑', '🍗', '🥐', '🥥', '🍒', '🍰', '🧁', '🍪'], []);
 
@@ -118,8 +118,8 @@ const FoodMemoryGame = ({ difficulty, backToMenu }) => {
     <div className="flex flex-col items-center gap-6 p-4">
     <div className="flex justify-between w-full max-w-4xl">
       <button
-        className="px-3 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300"
-        onClick={backToMenu}
+        className="px-3 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
+        onClick={resetGame}
       >
         Voltar
       </button>
@@ -141,7 +141,7 @@ const FoodMemoryGame = ({ difficulty, backToMenu }) => {
           className={`${getCardSize()} flex items-center justify-center rounded-lg shadow transition-transform duration-300 ${
             flipped.includes(card.id) || matched.includes(card.id)
               ? "bg-white"
-              : "bg-purple-500"
+              : "bg-purple-500 cursor-pointer"
           }`}
           onClick={() => handleCardClick(card.id)}
           disabled={matched.includes(card.id) || gameOver}
@@ -157,8 +157,7 @@ const FoodMemoryGame = ({ difficulty, backToMenu }) => {
         <p className="text-lg mt-2">
           Você venceu no modo {DIFFICULTY_LEVELS[difficulty].name}!
         </p>
-        <button className="flex items-center justify-between mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600" onClick={initializeGame}
-        >
+        <button className="flex items-center justify-between mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600" onClick={initializeGame}>
           <RotateCw size={16} /> Jogar Novamente
         </button>
       </div>

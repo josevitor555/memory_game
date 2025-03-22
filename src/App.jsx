@@ -19,6 +19,10 @@ function App() {
     setShowStartScreen(false);
   }
 
+  const resetGame = () => {
+    setShowStartScreen(true);
+  }
+
   return (
     <div>
       {showStartScreen ? (
@@ -28,10 +32,10 @@ function App() {
           startGame={startGame}
         />
       ) : (
-        <FoodMemoryGame difficulty={difficulty} />
+        <FoodMemoryGame difficulty={difficulty} resetGame={resetGame} />
       )}
     </div>
   );
 }
 
-export default App
+export default App;
