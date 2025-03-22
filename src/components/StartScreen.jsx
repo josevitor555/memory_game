@@ -10,8 +10,8 @@ const StartScreen = ({ difficulty, handleDifficultyChange, startGame }) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 p-4 bg-gray-100 rounded-lg text-center">
-      <h1 className="text-3xl font-bold text-purple-600"> Food Memory Game </h1>
+    <div className="start-screen flex flex-col items-center gap-6 p-4 bg-gray-100 rounded-lg text-center">
+      <h1 className="text-3xl font-bold text-gray-900"> Food Memory Game </h1>
       <p className="text-lg"> Combine pares de comidas deliciosas! </p>
 
       <div className="flex flex-col gap-4 w-full max-w-sm">
@@ -20,13 +20,13 @@ const StartScreen = ({ difficulty, handleDifficultyChange, startGame }) => {
           Selecione a Dificuldade
         </h2>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-4">
           {Object.entries(DIFFICULTY_LEVELS).map(([key, value]) => (
             <button
               key={key}
               className={`p-3 rounded-lg ${
                 difficulty === key
-                  ? "bg-purple-500 text-white"
+                  ? "bg-gray-900 text-white"
                   : "bg-white text-gray-700 hover:bg-purple-100 cursor-pointer"
               }`}
               onClick={() => handleDifficultyChange(key)}
@@ -40,7 +40,7 @@ const StartScreen = ({ difficulty, handleDifficultyChange, startGame }) => {
         </div>
 
         <button
-          className="mt-6 px-6 py-3 bg-green-500 text-white rounded-lg text-xl font-bold hover:bg-green-600 transition-colors cursor-pointer"
+          className="mt-6 px-6 py-3 bg-gray-900 text-white rounded-lg text-xl font-bold hover:bg-gray-900 transition-colors cursor-pointer"
           onClick={startGame}
         >
           Iniciar Jogo
